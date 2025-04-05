@@ -1,0 +1,34 @@
+p{
+    background-color: aqua;
+}
+
+/* Estilos para el botón de rating */
+.btn-rating {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #343a40;
+    color: #ffd700;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid #ffd700;
+    font-weight: bold;
+}
+
+.btn-rating:hover {
+    background: #ffd700;
+    color: #343a40;
+}
+
+.star-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+footer p {
+    background-color: transparent;
+    margin: 0;
+}
+
+
+

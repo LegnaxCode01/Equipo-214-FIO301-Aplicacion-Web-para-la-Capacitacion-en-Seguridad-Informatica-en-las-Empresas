@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Cuestionarios</title>
+    <link href="src/bootstrap.min.css" rel="stylesheet">
+    <link href="gestionar cuestionarios/cuestionario.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Gestión de Cuestionarios</h1>
+        <div id="admin-buttons" class="mb-4">
+            <button id="create-questionnaire" class="btn btn-primary" data-toggle="modal" data-target="#questionnaireModal">Crear Cuestionario</button>
+            <button id="go-to-page" class="btn btn-secondary">Inicio</button>
+        </div>
+        <div class="search-container mb-4">
+            <input type="text" id="search-input" class="form-control" placeholder="Buscar cuestionario...">
+        </div>
+        <div id="questionnaire-list">
+            <h2>Lista de Cuestionarios</h2>
+            <ul id="questionnaires" class="list-group">
+               
+            </ul>
+        </div>
+    </div>
+
+   
+    <div class="modal fade" id="questionnaireModal" tabindex="-1" role="dialog" aria-labelledby="questionnaireModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="questionnaireModalLabel">Formulario de Cuestionario</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <form id="questionnaire-form">
+                        <div class="form-group">
+                            <label for="questionnaire-title">Título del Cuestionario</label>
+                            <input type="text" class="form-control" id="questionnaire-title" required>
+                        </div>
+                        
+                        <!-- Primera Pregunta -->
+                        <div class="question-group">
+                            <h4>Pregunta 1</h4>
+                            <div class="form-group">
+                                <label for="question1">Pregunta</label>
+                                <input type="text" class="form-control" id="question1" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Opciones</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">1</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option1_1" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">2</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option1_2" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">3</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option1_3" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="correct-option1">Opción Correcta</label>
+                                <select id="correct-option1" class="form-control" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Segunda Pregunta -->
+                        <div class="question-group">
+                            <h4>Pregunta 2</h4>
+                            <div class="form-group">
+                                <label for="question2">Pregunta</label>
+                                <input type="text" class="form-control" id="question2" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Opciones</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">1</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option2_1" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">2</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option2_2" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">3</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option2_3" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="correct-option2">Opción Correcta</label>
+                                <select id="correct-option2" class="form-control" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Tercera Pregunta -->
+                        <div class="question-group">
+                            <h4>Pregunta 3</h4>
+                            <div class="form-group">
+                                <label for="question3">Pregunta</label>
+                                <input type="text" class="form-control" id="question3" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Opciones</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">1</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option3_1" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">2</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option3_2" required>
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">3</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="option3_3" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="correct-option3">Opción Correcta</label>
+                                <select id="correct-option3" class="form-control" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Respuesta -->
+    <div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="answerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="answerModalLabel">Responder Cuestionario</h5>
+                    
+                </div>
+                <div class="modal-body">
+                    <form id="answer-form">
+                        <div class="form-group">
+                            <label id="question-text"></label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="answer" id="answer1" value="1" required>
+                                <label class="form-check-label" for="answer1" id="option-text-1"></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="answer" id="answer2" value="2" required>
+                                <label class="form-check-label" for="answer2" id="option-text-2"></label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="answer" id="answer3" value="3" required>
+                                <label class="form-check-label" for="answer3" id="option-text-3"></label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Responder</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/jquery.js"></script>
+    <script src="src/bootstrap.min.js"></script>
+    <script src="gestionar cuestionarios/cuestionario.js"></script>
+</body>
+
+</html>

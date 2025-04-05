@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Dudas</title>
+    <link href="src/bootstrap.min.css" rel="stylesheet">
+    <link href="gestionar dudas/dudas.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Gestión de Dudas</h1>
+        <div id="admin-buttons" class="mb-4">
+            <button id="create-question" class="btn btn-primary" data-toggle="modal" data-target="#questionModal">Crear Duda</button>
+            <button id="go-to-page" class="btn btn-secondary">Inicio</button>
+        </div>
+        <div class="search-container mb-4">
+            <input type="text" id="search-input" class="form-control" placeholder="Buscar duda...">
+        </div>
+        <div id="question-list">
+            <h2>Lista de Dudas</h2>
+            <ul id="questions" class="list-group">
+                
+            </ul>
+        </div>
+    </div>
+
+    <!--  Duda -->
+    <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="questionModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="questionModalLabel">Formulario de Duda</h5>
+                    
+                </div>
+                
+                <div class="modal-body">
+                    <form id="question-form">
+                        <div class="form-group">
+                            <label for="question-title">Título</label>
+                            <input type="text" class="form-control" id="question-title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="question-description">Descripción</label>
+                            <textarea class="form-control" id="question-description" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Responder la Duda -->
+    <div class="modal fade" id="answerModal" tabindex="-1" role="dialog" aria-labelledby="answerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="answerModalLabel">Responder Duda</h5>
+                   
+                </div>
+                <div class="modal-body">
+                    <form id="answer-form">
+                        <div class="form-group">
+                            <label for="answer-description">Respuesta</label>
+                            <textarea class="form-control" id="answer-description" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/jquery.js"></script>
+    <script src="src/bootstrap.min.js"></script>
+    <script src="gestionar dudas/dudas.js"></script>
+</body>
+
+</html>
