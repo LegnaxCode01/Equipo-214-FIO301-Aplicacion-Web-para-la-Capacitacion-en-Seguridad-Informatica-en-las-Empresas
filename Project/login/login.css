@@ -10,3 +10,24 @@ body {
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Estilos para validación */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    padding-right: 0.75rem;
+    background-image: none;
+}
+
+.form-control.is-valid {
+    border-color: #198754;
+    padding-right: 0.75rem;
+    background-image: none;
+}
+
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}

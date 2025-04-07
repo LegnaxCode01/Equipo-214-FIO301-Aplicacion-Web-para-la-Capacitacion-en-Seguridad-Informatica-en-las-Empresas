@@ -15,7 +15,7 @@
         <!-- Formulario de evaluación -->
         <div class="card evaluation-card">
             <div class="card-body">
-                <form id="evaluationForm">
+                <form id="evaluationForm" novalidate>
                     <div class="mb-3">
                         <label class="form-label">¿Qué te pareció el sitio?</label>
                         <div class="rating-stars mb-3">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="comentario" class="form-label">Comentarios</label>
-                        <textarea class="form-control" id="comentario" rows="3" required></textarea>
+                        <textarea class="form-control" id="comentario" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Evaluación</button>
                 </form>

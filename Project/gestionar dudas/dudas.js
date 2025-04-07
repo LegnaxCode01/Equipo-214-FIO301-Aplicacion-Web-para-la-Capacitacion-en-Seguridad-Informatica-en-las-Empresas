@@ -1,102 +1,141 @@
 $(document).ready(function () {
+    // Deshabilitar validación nativa en todos los formularios
+    $('form').attr('novalidate', 'novalidate');
+    
     // Validación del formulario de dudas
     $('#create-question').click(function () {
         $('#question-form').trigger("reset");
         $('#questionModalLabel').text("Crear Duda");
         $('#questionModal').modal('show');
+        // Eliminar cualquier mensaje de error previo
+        $('.error-message').remove();
+        $('.is-invalid').removeClass('is-invalid');
     });
 
-    // Prevenir envío con Enter en los campos de texto
+    // Función para mostrar errores personalizados
+    function showCustomError(element, message) {
+        // Eliminar mensajes de error previos para este elemento
+        $(element).next('.error-message').remove();
+        
+        // Agregar mensaje de error personalizado
+        $('<div class="error-message text-danger mt-1">' + message + '</div>').insertAfter(element);
+        
+        // Agregar clase de error al elemento
+        $(element).addClass('is-invalid');
+    }
+    
+    // Función para limpiar errores
+    function clearError(element) {
+        $(element).next('.error-message').remove();
+        $(element).removeClass('is-invalid');
+    }
+
+    // Evitar que el navegador haga su propia validación en los inputs
+    $('input, textarea').on('invalid', function(e) {
+        e.preventDefault();
+        if ($(this).val().trim() === '') {
+            showCustomError(this, 'Este campo es obligatorio');
+        }
+    });
+
+    // Validación para el título
     $('#question-title').on('keydown', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
-            const errorAlert = $('<div class="alert alert-danger">Por favor, complete este campo.</div>').appendTo('.modal-body');
-            setTimeout(function() {
-                errorAlert.remove();
-            }, 1500);
+            if ($(this).val().trim() === '') {
+                showCustomError(this, 'Por favor, ingrese un título para la duda');
+            }
             return false;
         }
     });
-
-    // Permitir saltos de línea con Enter en el campo de descripción
-    $('#question-description').on('keydown', function(event) {
-        if (event.key === 'Enter') {
-            // Solo prevenir el envío del formulario, permitir el salto de línea cuando hay contenido
-            const value = $(this).val().trim();
-            if (value === '') {
-                event.preventDefault();
-                $(this).addClass('is-invalid');
-                const errorAlert = $('<div class="alert alert-danger">Por favor, complete este campo.</div>').appendTo('.modal-body');
-                setTimeout(function() {
-                    errorAlert.remove();
-                }, 1500);
-                return false;
-            }
-            // No prevenir el evento si hay texto, permitiendo el salto de línea
-        }
-    });
-
-    // Validación personalizada para el campo de descripción
-    $('#question-description').on('input', function() {
-        const value = $(this).val().trim();
-        if (value === '') {
-            $(this).addClass('is-invalid');
+    
+    $('#question-title').on('blur', function() {
+        if ($(this).val().trim() === '') {
+            showCustomError(this, 'Por favor, ingrese un título para la duda');
         } else {
-            $(this).removeClass('is-invalid');
+            clearError(this);
+        }
+    });
+    
+    $('#question-title').on('input', function() {
+        if ($(this).val().trim() !== '') {
+            clearError(this);
         }
     });
 
+    // Validación para la descripción
+    $('#question-description').on('blur', function() {
+        if ($(this).val().trim() === '') {
+            showCustomError(this, 'Por favor, ingrese una descripción de la duda');
+        } else {
+            clearError(this);
+        }
+    });
+
+    $('#question-description').on('input', function() {
+        if ($(this).val().trim() !== '') {
+            clearError(this);
+        }
+    });
+
+    // Validación del formulario de dudas al enviar
     $('#question-form').on('submit', function (event) {
-        // No prevenir el comportamiento por defecto si hay campos vacíos
-        // Esto permitirá que se muestre la validación nativa del navegador
-        const description = $('#question-description').val().trim();
-        const title = $('#question-title').val().trim();
+        // Prevenir el comportamiento por defecto
+        event.preventDefault();
         
-        // Si todos los campos están completos, prevenir el envío y cerrar el modal
-        if (description !== '' && title !== '' && $('#question-form')[0].checkValidity()) {
-            event.preventDefault();
+        let isValid = true;
+        
+        // Validar título
+        if ($('#question-title').val().trim() === '') {
+            showCustomError('#question-title', 'Por favor, ingrese un título para la duda');
+            isValid = false;
+        }
+        
+        // Validar descripción
+        if ($('#question-description').val().trim() === '') {
+            showCustomError('#question-description', 'Por favor, ingrese una descripción de la duda');
+            isValid = false;
+        }
+        
+        // Si todo es válido, proceder con el envío
+        if (isValid) {
             $('#questionModal').modal('hide');
+            // Aquí iría el código para enviar los datos al servidor
         }
     });
 
     // Validación del formulario de respuestas
-    // Prevenir envío con Enter en el campo de respuesta
-    $('#answer-description').on('keydown', function(event) {
-        if (event.key === 'Enter') {
-            // Solo prevenir el envío del formulario, permitir el salto de línea cuando hay contenido
-            const value = $(this).val().trim();
-            if (value === '') {
-                event.preventDefault();
-                $(this).addClass('is-invalid');
-                const errorAlert = $('<div class="alert alert-danger">Por favor, complete este campo.</div>').appendTo('.modal-body');
-                setTimeout(function() {
-                    errorAlert.remove();
-                }, 1500);
-                return false;
-            }
-            // No prevenir el evento si hay texto, permitiendo el salto de línea
-        }
-    });
-
-    // Validación personalizada para el campo de respuesta
-    $('#answer-description').on('input', function() {
-        const value = $(this).val().trim();
-        if (value === '') {
-            $(this).addClass('is-invalid');
+    $('#answer-description').on('blur', function() {
+        if ($(this).val().trim() === '') {
+            showCustomError(this, 'Por favor, ingrese una respuesta');
         } else {
-            $(this).removeClass('is-invalid');
+            clearError(this);
         }
     });
 
+    $('#answer-description').on('input', function() {
+        if ($(this).val().trim() !== '') {
+            clearError(this);
+        }
+    });
+
+    // Validación del formulario de respuestas al enviar
     $('#answer-form').on('submit', function (event) {
-        // No prevenir el comportamiento por defecto si hay campos vacíos
-        // Esto permitirá que se muestre la validación nativa del navegador
-        const description = $('#answer-description').val().trim();
+        // Prevenir el comportamiento por defecto
+        event.preventDefault();
         
-        // Si todos los campos están completos, prevenir el envío y cerrar el modal
-        if (description !== '' && $('#answer-form')[0].checkValidity()) {
-            event.preventDefault();
+        let isValid = true;
+        
+        // Validar respuesta
+        if ($('#answer-description').val().trim() === '') {
+            showCustomError('#answer-description', 'Por favor, ingrese una respuesta');
+            isValid = false;
+        }
+        
+        // Si todo es válido, proceder con el envío
+        if (isValid) {
             $('#answerModal').modal('hide');
+            // Aquí iría el código para enviar los datos al servidor
         }
     });
 

@@ -208,3 +208,20 @@ h2 {
     border-color: #6c757d;
     cursor: not-allowed;
 }
+
+/* Estilos para validación personalizada */
+.error-message {
+    font-size: 0.85rem;
+    margin-top: 4px;
+    color: #dc3545;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.is-invalid:focus {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}

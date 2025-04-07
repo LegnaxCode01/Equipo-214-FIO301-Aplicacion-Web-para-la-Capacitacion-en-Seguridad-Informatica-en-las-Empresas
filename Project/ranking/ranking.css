@@ -30,3 +30,10 @@ body {
 .form-label {
     color: #007bff !important; /* Azul de Bootstrap */
 }
+
+/* Estilos para mensajes de error personalizados */
+.text-danger {
+    color: #dc3545 !important;
+    font-size: 0.9em;
+    margin-top: 5px;
+}

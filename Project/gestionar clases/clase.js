@@ -1,6 +1,10 @@
 $(document).ready(function () {
     // Función para validar URLs
     function isValidUrl(url) {
+        // Verificar si contiene espacios
+        if (url.includes(' ')) {
+            return false;
+        }
         try {
             new URL(url);
             return true;
@@ -21,6 +25,12 @@ $(document).ready(function () {
         const url = $(this).val();
         if (url && !isValidUrl(url)) {
             $(this).addClass('is-invalid');
+            // Mensaje específico si contiene espacios
+            if (url.includes(' ')) {
+                $(this).next('.invalid-feedback').text('La URL no puede contener espacios.');
+            } else {
+                $(this).next('.invalid-feedback').text('Por favor, ingrese una URL válida (debe comenzar con http:// o https://)');
+            }
         } else {
             $(this).removeClass('is-invalid');
         }
@@ -64,6 +74,12 @@ $(document).ready(function () {
         // Validar URL
         if (!url || !isValidUrl(url)) {
             $('#video-url').addClass('is-invalid');
+            // Mensaje específico si contiene espacios
+            if (url.includes(' ')) {
+                $('#video-url').next('.invalid-feedback').text('La URL no puede contener espacios.');
+            } else {
+                $('#video-url').next('.invalid-feedback').text('Por favor, ingrese una URL válida (debe comenzar con http:// o https://)');
+            }
             isValid = false;
         } else {
             $('#video-url').removeClass('is-invalid');
