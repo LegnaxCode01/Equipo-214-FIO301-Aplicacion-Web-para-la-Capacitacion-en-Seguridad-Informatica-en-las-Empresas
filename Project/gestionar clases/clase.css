@@ -1,0 +1,156 @@
+/* Estilos generales */
+body {
+    background-color: #282a2c;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+}
+
+/* Títulos */
+h1 {
+    margin-bottom: 20px;
+    color: #5ba2e9;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h2 {
+    color: #5ba2e9;
+    margin-top: 40px;
+    text-align: center;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+/* Botones de administración */
+#admin-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#admin-buttons button {
+    min-width: 150px;
+    margin: 5px;
+}
+
+/* Lista de videos */
+#video-list {
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+#videos {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#videos .list-group-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+#videos .list-group-item h5 {
+    margin: 0;
+    flex: 1 1 100%;
+}
+
+#videos .list-group-item a {
+    word-break: break-all;
+    flex: 1 1 200px;
+}
+
+#videos .list-group-item .btn-group {
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
+}
+
+/* Estilos del modal */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Estilos para el botón de cierre del modal */
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.modal-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-close-btn:focus {
+    outline: none;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 576px) {
+    .container-fluid {
+        padding: 10px;
+    }
+    
+    #videos .list-group-item {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    #videos .list-group-item .btn-group {
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+/* Estilos para la barra de búsqueda */
+.search-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#search-input {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+#search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}

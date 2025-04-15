@@ -1,0 +1,227 @@
+/* Estilos generales */
+body {
+    background-color: #282a2c;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Títulos */
+h1 {
+    margin-bottom: 20px;
+    color: #5ba2e9;
+    text-align: center;
+}
+
+h2 {
+    color: #5ba2e9;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* Botones de administración */
+#admin-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#admin-buttons button {
+    width: 200px;
+}
+
+/* Lista de cuestionarios */
+#questionnaire-list {
+    margin-top: 30px;
+}
+
+#questionnaires {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#questionnaires .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+/* Estilos del modal */
+.modal-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-body .form-group label {
+    font-weight: bold;
+}
+
+.modal-body .form-group input,
+.modal-body .form-group select {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+.modal-body .form-group input:focus,
+.modal-body .form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer .btn-primary {
+    width: 100px;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+#search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Estilos mejorados para los botones */
+.list-group-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+.list-group-item h5 {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.list-group-item .buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.list-group-item .btn {
+    min-width: 140px;
+    padding: 8px 15px;
+    white-space: nowrap;
+}
+
+/* Media queries actualizados */
+@media (max-width: 768px) {
+    .list-group-item .buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-group-item .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 5px 0;
+    }
+
+    #admin-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #admin-buttons button {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+        min-height: 45px;
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .list-group-item {
+        grid-template-columns: 1fr auto;
+        gap: 15px;
+    }
+
+    .list-group-item .btn {
+        margin: 5px;
+    }
+}
+
+.attempts-info {
+    text-align: center;
+    color: #6c757d;
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.score-info {
+    text-align: center;
+    color: #28a745;
+    margin: 5px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.question-group {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.question-group h4 {
+    color: #007bff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.list-group-item button:disabled {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Estilos para validación personalizada */
+.error-message {
+    font-size: 0.85rem;
+    margin-top: 4px;
+    color: #dc3545;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.is-invalid:focus {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}

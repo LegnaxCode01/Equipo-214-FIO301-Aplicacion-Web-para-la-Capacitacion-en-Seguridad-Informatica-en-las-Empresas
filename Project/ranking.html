@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación del Sitio</title>
+    <link href="src/bootstrap.min.css" rel="stylesheet">
+    <link href="ranking/ranking.css" rel="stylesheet">
+   
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center text-gold mb-4">Evaluación del Sitio Web</h2>
+        
+        <!-- Formulario de evaluación -->
+        <div class="card evaluation-card">
+            <div class="card-body">
+                <form id="evaluationForm" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label">¿Qué te pareció el sitio?</label>
+                        <div class="rating-stars mb-3">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comentario" class="form-label">Comentarios</label>
+                        <textarea class="form-control" id="comentario" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Evaluación</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/jquery.js"></script>
+    <script src="src/bootstrap.min.js"></script>
+    <script src="ranking/ranking.js"></script>
+</body>
+</html>
